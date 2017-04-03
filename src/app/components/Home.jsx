@@ -19,7 +19,7 @@ const Home = () => {
         <strong>Well done!</strong> You application started :)
       </Alert>
 
-      <h4>What's has including ...?</h4>
+      <h4>What's has including ?</h4>
 
       <CardGroup>
         <Card outline color="secondary">
@@ -96,18 +96,6 @@ const Home = () => {
 
           <CardFooter>
             <Button color="info" size="sm" outline href="https://github.com/ReactTraining/react-router" target="_blank">Website</Button>
-          </CardFooter>
-        </Card>
-
-        <Card outline color="secondary">
-          <CardHeader>Nodemon</CardHeader>
-          
-          <CardBlock>
-            <CardText>Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development.</CardText>
-          </CardBlock>
-
-          <CardFooter>
-            <Button color="info" size="sm" outline href="https://nodemon.io/" target="_blank">Website</Button>
           </CardFooter>
         </Card>
 
