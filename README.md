@@ -1,6 +1,6 @@
 ### React Starter Kit ###
 
-Simple project to stater React project with Webpack dev middleware, react-hot-loader and more!
+Simple project to stater React project with Webpack hot middleware, react-hot-loader and more!
 
 #### Motivation ####
   It is very useful to start with all the plugins. The idea is to facilitate this with this very simplified startup.
