@@ -18,7 +18,7 @@
   "author": "Guilherme P. Nogueira <guilhermenogueira90@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guilherme90/react-webpack-starterissues"
+    "url": "https://github.com/guilherme90/react-webpack-starter/issues"
   },
   "homepage": "https://github.com/guilherme90/react-webpack-starter#readme",
   "dependencies": {

@@ -14,3 +14,6 @@ Simple project to stater React project with Webpack dev middleware, react-hot-lo
 - Webpack Hot Middleware
 - Babel Loader (ES6)
 - Nodemon
+
+```sh
+$ npm run server
