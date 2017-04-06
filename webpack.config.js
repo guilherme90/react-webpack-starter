@@ -1,27 +1,31 @@
-const { resolve } = require('path');
-const webpack = require('webpack');
-const path = require('path');
-const fs = require('fs');
+const { resolve, join } = require('path')
+const webpack = require('webpack')
+const path = require('path')
+const fs = require('fs')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const babelSettings = JSON.parse(fs.readFileSync(".babelrc"))
 
 if (! process.env.NODE_ENV) {
-	console.error('Oopz! Variable "NODE_ENV" not found!');
+	console.error('Oopz! Variable "NODE_ENV" not found!')
 
-	return false;
+	return false
 }
 
-const __SRC__ 			 = resolve(__dirname, 'src');
-const __PRODUCTION__ = process.env.NODE_ENV === 'production';
-const __DEV__        = ! __PRODUCTION__;
-const __API_URL__ = process.env.API_URL || 'http://localhost';
-const __PORT__ 		= process.env.PORT || 8080;
+const __SRC__ 			 = resolve(__dirname, 'src')
+const __PRODUCTION__ = process.env.NODE_ENV === 'production'
+const __DEV__        = ! __PRODUCTION__
+const __API_URL__ = process.env.API_URL || 'http://localhost'
+const __PORT__ 		= process.env.PORT || 8080
 
 const config = {
 	context: __SRC__,
 	cache: true,
 	watch: true,
 	resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.css'],
+		alias: {
+			css: resolve(__dirname, 'public/css')
+		}
   },
 	entry: [],
 	output: {
@@ -39,6 +43,7 @@ const config = {
     }),
 
 		new webpack.optimize.OccurrenceOrderPlugin(),
+		new ExtractTextPlugin('styles.css')
 	],
 	module: {
 		rules: [
@@ -46,13 +51,16 @@ const config = {
 				test: /\.jsx?$/,
         use: [ 'babel-loader'],
         exclude: /node_modules/,
-				include: path.join(__dirname, 'src')
+				include: join(__dirname, 'src')
 			},{
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },{
 				test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
-				use: 'url?limit=50000'
+				use: 'file-loader'
 			}
 		]
 	}
@@ -85,7 +93,7 @@ if (__PRODUCTION__) {
 }
 
 if (__DEV__) {
-	config.devtool = 'cheap-module-source-map';
+	config.devtool = 'extract-text-webpack-plugin?cheap-module-source-map';
 	config.devServer = {
 		contentBase: resolve(__dirname, 'public'),
 		port: __PORT__,
@@ -106,4 +114,4 @@ if (__DEV__) {
 	);
 };
 
-module.exports = config;
+module.exports = config

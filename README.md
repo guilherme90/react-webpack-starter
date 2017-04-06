@@ -9,10 +9,11 @@ Simple project to stater React project with Webpack hot middleware, react-hot-lo
 - React
 - React Hot Loader
 - React Router
-- ReactStrap
+- React Bootstrap
 - Webpack 2 (+ plugins: CSS Loader, Style Loader)
 - Webpack Hot Middleware
 - Babel Loader (ES6)
+- Express
 
 #### Dev Server ####
 ```sh

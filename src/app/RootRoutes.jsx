@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, browserHistory } from 'react-router';
 
-const RootContainer = (props) => {
+const RootRoutes = (props) => {
   return (
     <Router history={browserHistory}>
       {props.routes()}
@@ -9,4 +9,4 @@ const RootContainer = (props) => {
   )
 };
 
-export default RootContainer;
+export default RootRoutes;
