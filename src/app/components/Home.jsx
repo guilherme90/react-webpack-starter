@@ -45,16 +45,16 @@ const Home = () => {
         <FeaturePanel 
           title="CSS Loader & Style Loader" 
           description="CSS loaders module for webpack">
-            <ButtonGroup>
-              <Button bsStyle="warning" bsSize="sm" href="https://github.com/webpack-contrib/css-loader" target="_blank">
-                <Glyphicon glyph="chevron-right" /> CSS
-              </Button>
+          <ButtonGroup>
+            <Button bsStyle="warning" bsSize="sm" href="https://github.com/webpack-contrib/css-loader" target="_blank">
+              <Glyphicon glyph="chevron-right" /> CSS
+            </Button>
 
-              <Button bsStyle="primary" bsSize="sm" href="https://github.com/webpack-contrib/style-loader" target="_blank">
-                <Glyphicon glyph="chevron-right" /> Style
-              </Button>
-            </ButtonGroup>
-          </FeaturePanel>
+            <Button bsStyle="primary" bsSize="sm" href="https://github.com/webpack-contrib/style-loader" target="_blank">
+              <Glyphicon glyph="chevron-right" /> Style
+            </Button>
+          </ButtonGroup>
+        </FeaturePanel>
 
         <FeaturePanel 
           title="Babel Loader (ES6)" 

@@ -8,22 +8,26 @@ import {
   ListGroupItem
 } from 'react-bootstrap'
 
-const titlePanel = (title, linkTo, hasChildren) => {
-  return hasChildren 
+const titlePanel = ({...props}) => {
+  return props.hasChildren 
     ? (
       <div>
-        <Glyphicon glyph="link" /> {title}
+        <Glyphicon glyph="link" /> {props.title}
       </div>
     ) : (
-      <a href={linkTo} target="_blank">
-        <Glyphicon glyph="link" /> {title}
+      <a href={props.linkTo} target="_blank">
+        <Glyphicon glyph="link" /> {props.title}
       </a>
     )
 }
 
 const FeaturePanel = (props) => (
   <Col xs={1} sm={1} md={4} lg={4}>
-    <Panel header={titlePanel(props.title, props.linkTo, props.children)} bsStyle="default">
+    <Panel header={titlePanel({
+      title: props.title,
+      linkTo: props.linkTo,
+      hasChildren: props.children
+    })} bsStyle="default">
       {props.description}
       
       {props.children && (
