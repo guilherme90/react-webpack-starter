@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { Navbar, Glyphicon } from 'react-bootstrap'
 
 const MenuTop = () => (
-  <Navbar>
+  <Navbar inverse>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">

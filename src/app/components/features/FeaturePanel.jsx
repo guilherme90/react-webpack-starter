@@ -6,28 +6,33 @@ import {
   Panel,
   ListGroup,
   ListGroupItem
-} from 'react-bootstrap';
+} from 'react-bootstrap'
 
-const titlePanel = (title) => (
-  <div>
-    <Glyphicon glyph="paperclip" /> {title}
-  </div>
-)
+const titlePanel = (title, linkTo, hasChildren) => {
+  return hasChildren 
+    ? (
+      <div>
+        <Glyphicon glyph="link" /> {title}
+      </div>
+    ) : (
+      <a href={linkTo} target="_blank">
+        <Glyphicon glyph="link" /> {title}
+      </a>
+    )
+}
 
 const FeaturePanel = (props) => (
   <Col xs={1} sm={1} md={4} lg={4}>
-    <Panel header={titlePanel(props.title)} bsStyle="info">
+    <Panel header={titlePanel(props.title, props.linkTo, props.children)} bsStyle="default">
       {props.description}
       
-      <ListGroup fill>
-        <ListGroupItem>
-          {props.children || (
-            <Button bsStyle="default" bsSize="sm" href={props.linkTo} target="_blank">
-              <Glyphicon glyph="new-window" /> WebSite
-            </Button>
-          )}
-        </ListGroupItem>
-      </ListGroup>
+      {props.children && (
+        <ListGroup fill>
+          <ListGroupItem>
+            {props.children}
+          </ListGroupItem>
+        </ListGroup>
+      )}
     </Panel>
   </Col>
 )
@@ -35,7 +40,7 @@ const FeaturePanel = (props) => (
 FeaturePanel.PropTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  linkTo: PropTypes.string.isRequired
+  linkTo: PropTypes.string
 }
 
 export default FeaturePanel

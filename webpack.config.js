@@ -22,10 +22,7 @@ const config = {
 	cache: true,
 	watch: true,
 	resolve: {
-    extensions: ['.js', '.jsx', '.css'],
-		alias: {
-			css: resolve(__dirname, 'public/css')
-		}
+    extensions: ['.js', '.jsx']
   },
 	entry: [],
 	output: {
@@ -64,12 +61,12 @@ const config = {
 			}
 		]
 	}
-};
+}
 
 if (__PRODUCTION__) {
 	config.entry.push(
 		'./index.js'
-	);
+	)
 	config.plugins.push(
 		new webpack.LoaderOptionsPlugin({
 				minimize: true,
@@ -86,14 +83,14 @@ if (__PRODUCTION__) {
 			},
 			comments: false
 		})
-	);
+	)
 
-	babelSettings.plugins.push('transform-react-inline-elements');
-  babelSettings.plugins.push('transform-react-constant-elements');
+	babelSettings.plugins.push('transform-react-inline-elements')
+  babelSettings.plugins.push('transform-react-constant-elements')
 }
 
 if (__DEV__) {
-	config.devtool = 'extract-text-webpack-plugin?cheap-module-source-map';
+	config.devtool = 'extract-text-webpack-plugin?cheap-module-source-map'
 	config.devServer = {
 		contentBase: resolve(__dirname, 'public'),
 		port: __PORT__,
@@ -102,16 +99,16 @@ if (__DEV__) {
 		compress: true,
 		open: true,
 		stats: 'errors-only'
-	};
+	}
 	config.entry.push(
 		'react-hot-loader/patch',
 		'webpack-hot-middleware/client?quiet=true',
 		'./index.js'
-	);
+	)
 	config.plugins.push(
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin()
-	);
-};
+	)
+}
 
 module.exports = config

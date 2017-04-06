@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
-import { Router, browserHistory } from 'react-router';
+import React, { Component, PropTypes } from 'react'
+import { Router, browserHistory } from 'react-router'
 
 const RootRoutes = (props) => {
   return (
-    <Router history={browserHistory}>
+    <Router key={Math.random()} history={browserHistory}>
       {props.routes()}
     </Router>
   )
-};
+}
 
-export default RootRoutes;
+RootRoutes.propTypes = {
+  routes: PropTypes.func.isRequired
+}
+
+export default RootRoutes

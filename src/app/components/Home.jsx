@@ -44,14 +44,14 @@ const Home = () => {
       <Row>
         <FeaturePanel 
           title="CSS Loader & Style Loader" 
-          description="CSS loaders module for webpack" 
-          linkTo="https://gaearon.github.io/react-hot-loader/">
+          description="CSS loaders module for webpack">
             <ButtonGroup>
-              <Button bsStyle="default" bsSize="sm" href="https://github.com/webpack-contrib/css-loader" target="_blank">
-                <Glyphicon glyph="align-left" /> CSS
+              <Button bsStyle="warning" bsSize="sm" href="https://github.com/webpack-contrib/css-loader" target="_blank">
+                <Glyphicon glyph="chevron-right" /> CSS
               </Button>
-              <Button bsStyle="default" bsSize="sm" href="https://github.com/webpack-contrib/style-loader" target="_blank">
-                <Glyphicon glyph="align-left" /> Style
+
+              <Button bsStyle="primary" bsSize="sm" href="https://github.com/webpack-contrib/style-loader" target="_blank">
+                <Glyphicon glyph="chevron-right" /> Style
               </Button>
             </ButtonGroup>
           </FeaturePanel>
@@ -77,4 +77,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Home
