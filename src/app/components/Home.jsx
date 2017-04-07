@@ -31,17 +31,36 @@ const Home = () => {
           linkTo="https://react-bootstrap.github.io" />
 
         <FeaturePanel 
+          title="React Hot Loader" 
+          description="Tweak React components in real time" 
+          linkTo="https://gaearon.github.io/react-hot-loader/" />
+
+        <FeaturePanel 
+          title="React Router (3.x)" 
+          description="Declarative routing for React" 
+          linkTo="https://github.com/ReactTraining/react-router" />        
+      </Row>
+
+      <Row>
+        <FeaturePanel 
           title="Webpack 2" 
           description="Module with dependences" 
           linkTo="https://webpack.js.org/" />
 
         <FeaturePanel 
-          title="React Hot Loader" 
-          description="Tweak React components in real time" 
-          linkTo="https://gaearon.github.io/react-hot-loader/" />
-      </Row>
+          title="Webpack Hot & Dev Middleware" 
+          description="Middlewares for development mode">
+          <ButtonGroup>
+            <Button bsStyle="warning" bsSize="sm" href="https://github.com/webpack/webpack-dev-middleware" target="_blank">
+              <Glyphicon glyph="chevron-right" /> Dev Middleware
+            </Button>
 
-      <Row>
+            <Button bsStyle="primary" bsSize="sm" href="https://github.com/glenjamin/webpack-hot-middleware" target="_blank">
+              <Glyphicon glyph="chevron-right" /> Hot Middleware
+            </Button>
+          </ButtonGroup>
+        </FeaturePanel>
+
         <FeaturePanel 
           title="CSS Loader & Style Loader" 
           description="CSS loaders module for webpack">
@@ -55,19 +74,14 @@ const Home = () => {
             </Button>
           </ButtonGroup>
         </FeaturePanel>
-
-        <FeaturePanel 
-          title="Babel Loader (ES6)" 
-          description="JavaScript compiler" 
-          linkTo="https://babeljs.io/" />
-
-        <FeaturePanel 
-          title="React Router (3.x)" 
-          description="Declarative routing for React" 
-          linkTo="https://github.com/ReactTraining/react-router" />
       </Row>
 
       <Row>
+        <FeaturePanel 
+          title="Babel Loader" 
+          description="JavaScript compiler" 
+          linkTo="https://babeljs.io/" />
+
         <FeaturePanel 
           title="Express" 
           description="Fast, unopinionated, minimalist web framework for Node.js" 

@@ -23,8 +23,7 @@ if (process.env.NODE_ENV === 'development') {
   }))
 
   app.use(webpackHotMiddleware(compiler, {
-    reload: true,
-    quiet: true
+    reload: true
   }))
 }
 

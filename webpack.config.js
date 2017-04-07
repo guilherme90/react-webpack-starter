@@ -11,10 +11,16 @@ if (! process.env.NODE_ENV) {
 	return false
 }
 
+if (! process.env.API_URL) {
+  console.error('Oopz! Variable "API_URL" not found!')
+
+	return false
+}
+
 const __SRC__ 			 = resolve(__dirname, 'src')
 const __PRODUCTION__ = process.env.NODE_ENV === 'production'
 const __DEV__        = ! __PRODUCTION__
-const __API_URL__ = process.env.API_URL || 'http://localhost'
+const __API_URL__ = process.env.API_URL
 const __PORT__ 		= process.env.PORT || 8080
 
 const config = {
@@ -40,13 +46,14 @@ const config = {
     }),
 
 		new webpack.optimize.OccurrenceOrderPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 		new ExtractTextPlugin('styles.css')
 	],
 	module: {
 		rules: [
 			{
 				test: /\.jsx?$/,
-        use: [ 'babel-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
 				include: join(__dirname, 'src')
 			},{
@@ -102,7 +109,7 @@ if (__DEV__) {
 	}
 	config.entry.push(
 		'react-hot-loader/patch',
-		'webpack-hot-middleware/client?quiet=true',
+		'webpack-hot-middleware/client',
 		'./index.js'
 	)
 	config.plugins.push(

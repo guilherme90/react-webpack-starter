@@ -6,15 +6,16 @@ Simple project to stater React project with Webpack hot middleware, react-hot-lo
   It is very useful to start with all the plugins. The idea is to facilitate this with this very simplified startup.
 
 #### Packages included ####
-- React
-- React Hot Loader
-- React Router
-- React Bootstrap
-- Bootswatch (Themes for Bootstrap)
-- Webpack 2 (+ plugins: CSS Loader, Style Loader)
-- Webpack Hot Middleware
-- Babel Loader (ES6)
-- Express
+- [React](https://facebook.github.io/react/)
+- [React Hot Loader](https://github.com/gaearon/react-hot-loader)
+- [React Router](https://reacttraining.com/react-router/)
+- [React Bootstrap](https://react-bootstrap.github.io)
+- [Bootswatch (Themes for Bootstrap)](http://bootswatch.com/default/)
+- [Webpack 2](https://webpack.js.org/)
+- [Webpack Dev Middleware](https://github.com/webpack/webpack-dev-middleware)
+- [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
+- [Babel Loader](https://babeljs.io/)
+- [Express](http://expressjs.com/)
 
 #### Dev Server ####
 ```sh
