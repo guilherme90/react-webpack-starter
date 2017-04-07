@@ -22,7 +22,7 @@ const titlePanel = ({...props}) => {
 }
 
 const FeaturePanel = (props) => (
-  <Col xs={1} sm={1} md={4} lg={4}>
+  <Col xs={12} sm={12} md={4} lg={4}>
     <Panel header={titlePanel({
       title: props.title,
       linkTo: props.linkTo,
