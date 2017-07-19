@@ -1,0 +1,14 @@
+[user]
+name = guilherme90
+email = guilhermenogueira90@gmail.com
+
+[alias]
+st = status
+cm = commit
+br = branch
+df = diff
+lg = log -pgit ps
+ch = checkout
+pom = pull origin master
+ps = push
+pl = pull

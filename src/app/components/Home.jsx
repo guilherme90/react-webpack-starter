@@ -43,8 +43,8 @@ const Home = () => {
 
       <Row>
         <FeaturePanel 
-          title="Webpack 2" 
-          description="Module with dependences" 
+          title="Webpack 3" 
+          description="Module with dependences"
           linkTo="https://webpack.js.org/" />
 
         <FeaturePanel 

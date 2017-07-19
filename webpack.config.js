@@ -17,9 +17,9 @@ if (! process.env.API_URL) {
 	return false
 }
 
-const __SRC__ 			 = resolve(__dirname, 'src')
+const __SRC__ 		= resolve(__dirname, 'src')
 const __PRODUCTION__ = process.env.NODE_ENV === 'production'
-const __DEV__        = ! __PRODUCTION__
+const __DEVELOPMENT__ = ! __PRODUCTION__
 const __API_URL__ = process.env.API_URL
 const __PORT__ 		= process.env.PORT || 8080
 
@@ -60,7 +60,7 @@ const config = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+					use: 'css-loader?minimize=true'
         })
       },{
 				test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
@@ -70,52 +70,10 @@ const config = {
 	}
 }
 
+if (__DEVELOPMENT__) {
+	module.exports = require('./webpack.development')(webpack, config, __PORT__)
+}
+
 if (__PRODUCTION__) {
-	config.entry.push(
-		'./index.js'
-	)
-	config.plugins.push(
-		new webpack.LoaderOptionsPlugin({
-				minimize: true,
-				debug: false
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-			beautify: false,
-			mangle: {
-				screw_ie8: true,
-				keep_fnames: true
-			},
-			compress: {
-				screw_ie8: true
-			},
-			comments: false
-		})
-	)
-
-	babelSettings.plugins.push('transform-react-inline-elements')
-  babelSettings.plugins.push('transform-react-constant-elements')
+	module.exports = require('./webpack.production')(webpack, config)
 }
-
-if (__DEV__) {
-	config.devtool = 'extract-text-webpack-plugin?cheap-module-source-map'
-	config.devServer = {
-		contentBase: resolve(__dirname, 'public'),
-		port: __PORT__,
-		inline: true,
-		hot: true,
-		compress: true,
-		open: true,
-		stats: 'errors-only'
-	}
-	config.entry.push(
-		'react-hot-loader/patch',
-		'webpack-hot-middleware/client',
-		'./index.js'
-	)
-	config.plugins.push(
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
-	)
-}
-
-module.exports = config
