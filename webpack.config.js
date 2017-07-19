@@ -5,23 +5,23 @@ const fs = require('fs')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const babelSettings = JSON.parse(fs.readFileSync(".babelrc"))
 
-if (! process.env.NODE_ENV) {
+if (!process.env.NODE_ENV) {
 	console.error('Oopz! Variable "NODE_ENV" not found!')
 
 	return false
 }
 
-if (! process.env.API_URL) {
+if (!process.env.API_URL) {
   console.error('Oopz! Variable "API_URL" not found!')
 
 	return false
 }
 
-const __SRC__ 		= resolve(__dirname, 'src')
-const __PRODUCTION__ = process.env.NODE_ENV === 'production'
+const __SRC__ 				= resolve(__dirname, 'src')
+const __PRODUCTION__ 	= process.env.NODE_ENV === 'production'
 const __DEVELOPMENT__ = ! __PRODUCTION__
-const __API_URL__ = process.env.API_URL
-const __PORT__ 		= process.env.PORT || 8080
+const __API_URL__ 		= process.env.API_URL
+const __PORT__ 				= process.env.PORT || 8080
 
 const config = {
 	context: __SRC__,
@@ -37,13 +37,11 @@ const config = {
 		filename: 'bundle.js'
 	},
 	plugins: [
-		new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-				PORT: JSON.stringify(__PORT__),
-				API_URL: JSON.stringify(__API_URL__)
-      }
-    }),
+		new webpack.EnvironmentPlugin({
+			NODE_ENV: process.env.NODE_ENV,
+			PORT: __PORT__,
+			API_URL: __API_URL__
+		}),
 
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
@@ -60,7 +58,7 @@ const config = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-					use: 'css-loader?minimize=true'
+					use: 'css-loader'
         })
       },{
 				test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,

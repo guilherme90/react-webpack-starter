@@ -52,7 +52,7 @@ app.get('*', (request, response) => {
 
 app.listen(__PORT__, 'localhost', (err) => {
   if (err){
-		return console.log(err)
+    return console.log(err)
 	}
 
   console.log(`Listening on port ${ __PORT__}!`)
