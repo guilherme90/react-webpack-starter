@@ -12,7 +12,7 @@ if (!process.env.NODE_ENV) {
 }
 
 if (!process.env.API_URL) {
-  console.error('Oopz! Variable "API_URL" not found!')
+	console.error('Oopz! Variable "API_URL" not found!')
 
 	return false
 }
@@ -28,8 +28,8 @@ const config = {
 	cache: true,
 	watch: true,
 	resolve: {
-    extensions: ['.js', '.jsx']
-  },
+		extensions: ['.js', '.jsx']
+	},
 	entry: [],
 	output: {
 		path: resolve(__dirname, 'public'),
@@ -51,16 +51,16 @@ const config = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/,
+				use: ['babel-loader'],
+				exclude: /node_modules/,
 				include: join(__dirname, 'src')
 			},{
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
 					use: 'css-loader'
-        })
-      },{
+				})
+			},{
 				test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
 				use: 'file-loader'
 			}

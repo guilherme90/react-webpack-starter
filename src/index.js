@@ -10,33 +10,33 @@ import 'bootswatch/paper/bootstrap.min.css'
 const __DEV__ = process.env.NODE_ENV === 'development';
 
 if (__DEV__) {
-  const renderApp = (routes) => {
-    render(
-      <AppContainer>
-        <RootRoutes routes={routes} />
-      </AppContainer>,
-      document.querySelector('#root')
-    )
-  }
+	const renderApp = (routes) => {
+		render(
+			<AppContainer>
+				<RootRoutes routes={routes} />
+			</AppContainer>,
+			document.querySelector('#root')
+		)
+	}
 
-  renderApp(routes)
+	renderApp(routes)
 
-  if (module.hot) {
-    module.hot.accept('./routes', () => {
-      const newRoutes = require('./routes').default
+	if (module.hot) {
+		module.hot.accept('./routes', () => {
+			const newRoutes = require('./routes').default
 
-      renderApp(newRoutes)
-    })
-  }
+			renderApp(newRoutes)
+		})
+	}
 }
 
 if (! __DEV__) {
-  const renderApp = (routes) => {
-    render(
-      <RootRoutes routes={routes} />,
-      document.querySelector('#root')
-    )
-  }
+	const renderApp = (routes) => {
+		render(
+			<RootRoutes routes={routes} />,
+			document.querySelector('#root')
+		)
+	}
 
-  renderApp(routes)
+	renderApp(routes)
 }
