@@ -17,11 +17,11 @@ if (!process.env.API_URL) {
   return false
 }
 
-const __SRC__ 				= resolve(__dirname, 'src')
-const __PRODUCTION__ 	= process.env.NODE_ENV === 'production'
+const __SRC__         = resolve(__dirname, 'src')
+const __PRODUCTION__  = process.env.NODE_ENV === 'production'
 const __DEVELOPMENT__ = ! __PRODUCTION__
-const __API_URL__ 		= process.env.API_URL
-const __PORT__ 				= process.env.PORT || 8080
+const __API_URL__     = process.env.API_URL
+const __PORT__        = process.env.PORT || 8080
 
 const config = {
   context: __SRC__,
