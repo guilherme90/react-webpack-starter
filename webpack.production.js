@@ -1,5 +1,5 @@
 module.exports = (webpack, config) => {
-  config.entry.push(
+	config.entry.push(
 		'./index.js'
 	)
 	config.plugins.push(
@@ -21,7 +21,7 @@ module.exports = (webpack, config) => {
 	)
 
 	babelSettings.plugins.push('transform-react-inline-elements')
-  babelSettings.plugins.push('transform-react-constant-elements')
+	babelSettings.plugins.push('transform-react-constant-elements')
 
-  return config
+	return config
 }
