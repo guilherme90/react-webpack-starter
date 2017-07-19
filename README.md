@@ -11,7 +11,7 @@ Simple project to stater React project with Webpack hot middleware, react-hot-lo
 - [React Router](https://reacttraining.com/react-router/)
 - [React Bootstrap](https://react-bootstrap.github.io)
 - [Bootswatch (Themes for Bootstrap)](http://bootswatch.com/default/)
-- [Webpack 2](https://webpack.js.org/)
+- [Webpack](https://webpack.js.org/)
 - [Webpack Dev Middleware](https://github.com/webpack/webpack-dev-middleware)
 - [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 - [Babel Loader](https://babeljs.io/)
